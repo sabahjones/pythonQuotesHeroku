@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blackbelt - quotes main page</title>
+  </head>
+  <body>
+    welcome {{request.session.name}}!
+    <br>
+    <a href="/logout">logout</a>
+
+    <h3>Quotable Quotes!</h3>
+
+      {% for quote in allquotes %}
+
+
+      <br>
+      <b>{{quote.author}}</b>: {{quote.text}} <br>
+      <i>posted by: <a href="/showuser/{{quote.user.id}}">{{quote.user.name}}</a></i>
+      <br>
+      <a href="addfave/{{quote.id}}"><button>add to my list</button></a>
+      <br>
+
+
+      {% endfor %}
+
+      {% for message in messages %}
+      <br><br>
+      <b><i><li>{{message}}</li></i></b><br>
+      {% endfor %}
+
+    <h3>Your favorites</h3>
+
+      {% for fave in favequotes %}
+      <b>{{fave.quote.author}}:</b> {{fave.quote.text}} <br>
+      <i>posted by: <a href="/showuser/{{fave.quote.user.id}}">{{fave.quote.user.name}}</a></i>
+      <br>
+      <a href="deletefave/{{fave.id}}"><button>Delete</button></a>
+      <br>
+      <br>
+      {% endfor %}
+
+
+
+    <form action="/addquote" method = "POST">
+      {% csrf_token %}
+      <table>
+      <tr><td>Quoted by: </td><td><input type="text" name="author"></td></tr>
+        <br>
+      <tr><td>Message: </td><td><textarea name="quote" cols="30" rows="10"></textarea></td></tr>
+      <tr><td></td><td><input type="submit" value="add quote"></td></tr>
+    </table>
+
+    </form>
+
+  </body>
+</html>
