@@ -11,6 +11,5 @@ urlpatterns = [
     url(r'^addfave/(?P<id>\d+)$', addfave),
     url(r'^deletefave/(?P<id>\d+)$', deletefave),
     url(r'^showuser/(?P<id>\d+)$', showuser),
-    
     url(r'^logout$', logout)
 ]

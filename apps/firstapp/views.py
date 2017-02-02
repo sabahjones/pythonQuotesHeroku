@@ -68,15 +68,22 @@ def login(request):
 def quotes(request):
 
     favequotes = Favorite.objects.filter(user=request.session['id'])
-
     allquotes = Quote.objects.all()
+    exclude = {}
+
+    for f in favequotes:
+        for a in allquotes:
+                if a.id == f.quote_id:
+                    exclude[a] = "exclude"
+
     for a in allquotes:
-        print "a.text", a.text
-        print "a.favorite_quote", a.favorite_quote
+        if a not in exclude:
+            print "final list =", a.id
 
     context = {
         'allquotes': allquotes,
-        'favequotes': favequotes
+        'favequotes': favequotes,
+        'exclude': exclude
     }
     return render (request, 'firstapp/quotes.html', context)
 

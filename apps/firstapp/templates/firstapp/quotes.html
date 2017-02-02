@@ -9,25 +9,20 @@
     <br>
     <a href="/logout">logout</a>
 
-    <h3>Quotable Quotes!</h3>
+<h2>shortlist test</h2>
 
-      {% for quote in allquotes %}
+    {% for a in allquotes %}
+    {% if a not in exclude %}
 
+    <br>
+    <b>{{a.author}}</b>: {{a.text}} <br>
+    <i>posted by: <a href="/showuser/{{a.user.id}}">{{a.user.name}}</a></i>
+    <br>
+    <a href="addfave/{{a.id}}"><button>add to my list</button></a>
+    <br>
 
-      <br>
-      <b>{{quote.author}}</b>: {{quote.text}} <br>
-      <i>posted by: <a href="/showuser/{{quote.user.id}}">{{quote.user.name}}</a></i>
-      <br>
-      <a href="addfave/{{quote.id}}"><button>add to my list</button></a>
-      <br>
-
-
-      {% endfor %}
-
-      {% for message in messages %}
-      <br><br>
-      <b><i><li>{{message}}</li></i></b><br>
-      {% endfor %}
+    {% endif %}
+    {% endfor %}
 
     <h3>Your favorites</h3>
 
@@ -39,6 +34,8 @@
       <br>
       <br>
       {% endfor %}
+
+
 
 
 
