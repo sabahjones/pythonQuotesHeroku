@@ -13,15 +13,13 @@ Walkthrough:
 
 User login/registration: 
 
-
-/Users/Sirius/Desktop/Screen Shot 2019-01-18 at 2.09.17 AM.png
-
+![User Login/Reg](https://github.com/sabahjones/images/blob/master/pythonDjangoLogin.png)
 
 User option enforces a unique email, correct password, and required field inputs.
 
 User dashboard: 
 
-/Users/Sirius/Desktop/Screen Shot 2019-01-18 at 2.12.54 AM.png
+![User Dash](https://github.com/sabahjones/images/blob/master/pythonDjangoDashboard.png)
 
 
 1. User name in top right indicates successful user authentication
@@ -30,10 +28,9 @@ User dashboard:
 4. Statefulness is applied using user ID upon creation/login and is persistent until user logs out. 
 
 
-
 Database user table data: 
 
-/Users/Sirius/Desktop/Screen Shot 2019-01-18 at 2.24.02 AM.png
+![User Table](https://github.com/sabahjones/images/blob/master/dbview.png)
 
 View of database table confirms successful encryption of user passwords.
 
@@ -45,4 +42,4 @@ Please note:
 For any other questions or feedback please email me at smahmed275@gmail.com
 
 Thank you!
-
+git
