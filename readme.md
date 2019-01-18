@@ -13,15 +13,14 @@ Walkthrough:
 
 <h2>User login/registration: </h2>
 
+<h4>User option enforces a unique email, correct password, and required field inputs.</h4>
+
+
 ![User Login/Reg](https://github.com/sabahjones/images/blob/master/pythonDjangoLogin.png)
 
-User option enforces a unique email, correct password, and required field inputs.
 
 
 <h2>User dashboard: </h2>
-
-![User Dash](https://github.com/sabahjones/images/blob/master/pythonDjangoDashboard.png)
-
 
 1. User name in top right indicates successful user authentication
 2. "Popular Quotes!" shows all quotes in database, minus user favorites which appear on right side. Quotes are dynamically added and subtracted accordingly.
@@ -29,18 +28,22 @@ User option enforces a unique email, correct password, and required field inputs
 4. Statefulness is applied using user ID upon creation/login and is persistent until user logs out. 
 
 
+![User Dash](https://github.com/sabahjones/images/blob/master/pythonDjangoDashboard.png)
+
+
+
+
+
 <h2>Database user table data: </h2>
 
-![User Table](https://github.com/sabahjones/images/blob/master/dbview.png)
 
 View of database table confirms successful encryption of user passwords.
 
+![User Table](https://github.com/sabahjones/images/blob/master/dbview.png)
 
-Please note: 
 
+Note: 
 	No CSS or frontend JS framework was required for initial examination. Link to completed project will be provided shortly. 
 
-For any other questions or feedback please email me at smahmed275@gmail.com
+For any other questions, feedback, or updates please email me at smahmed275@gmail.com.
 
-Thank you!
-git
