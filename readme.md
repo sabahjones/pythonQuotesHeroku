@@ -11,13 +11,14 @@ Python version 2.7
 
 Walkthrough: 
 
-User login/registration: 
+<h2>User login/registration: </h2>
 
 ![User Login/Reg](https://github.com/sabahjones/images/blob/master/pythonDjangoLogin.png)
 
 User option enforces a unique email, correct password, and required field inputs.
 
-User dashboard: 
+
+<h2>User dashboard: </h2>
 
 ![User Dash](https://github.com/sabahjones/images/blob/master/pythonDjangoDashboard.png)
 
@@ -28,7 +29,7 @@ User dashboard:
 4. Statefulness is applied using user ID upon creation/login and is persistent until user logs out. 
 
 
-Database user table data: 
+<h2>Database user table data: </h2>
 
 ![User Table](https://github.com/sabahjones/images/blob/master/dbview.png)
 
