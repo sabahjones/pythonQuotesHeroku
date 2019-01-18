@@ -43,7 +43,9 @@ View of database table confirms successful encryption of user passwords.
 
 
 Note: 
+
 	No CSS or frontend JS framework was required for initial examination. Link to completed project will be provided shortly. 
+
 
 For any other questions, feedback, or updates please email me at smahmed275@gmail.com.
 
