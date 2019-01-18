@@ -130,12 +130,9 @@ def showuser(request, id):
 
     return render (request, 'firstapp/showuser.html', context)
 
-
-
-
-
-
-
+def deletequote(request, id):
+    Quote.objects.filter(id=id).delete()
+    return redirect('/quotes')
 
 def logout(request):
     request.session.clear()

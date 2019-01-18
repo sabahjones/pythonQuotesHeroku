@@ -1,0 +1,92 @@
+
+** start Django environment:
+
+prompt$ Source  /Users/<Comp Name>/<folder>/python_env/myEnvironments/py2FlaskEnv/bin/activate
+
+
+
+I. Django folder creation
+
+
+  1. create a Django project:
+      --> django-admin startproject <project name>
+
+  2. create an 'apps' folder
+      --> cd <project name>
+      --> mkdir apps
+
+  3. create dunder-file in apps folder
+      --> cd apps
+      --> touch __init__.py
+
+  4. create an app in the 'apps' folder (this will tell Django this folder is a part of the program)
+      --> python ../manage.py startapp <app name>
+
+  5.  create urls.py file inside of newly created app
+      --> cd <app name>
+      --> touch urls.py
+
+
+II. Django routes configuration: (open project in Atom)
+
+
+  1. in <project name>/settings.py -> register app in Django:
+      'apps.<app name>,'
+      'django_extensions' (optional: for extra functionality, pygraphviz, etc.)
+      edit time zone (optional)
+
+  2. configure "<project name>/urls.py" file to route url functions to "<app name>/urls.py":
+      add to header:  'url, include'
+      add to url(s) list:
+          url(r'^', include('apps.<app name>.urls', namespace = '<choose shortcut name>')
+          url(r'^', include('apps.<app name>.urls', namespace = '<choose shortcut name>')
+
+
+  3. (optional - setup test) create a method in app's views.py:
+
+      add line to header: from django.shortcuts import render, HttpResponse
+      add code to body:
+        def index(request):
+          response = "Hello, I am your first request!"
+          return HttpResponse(response)
+
+  - (optional) in <project name>/settings.py edit:
+      --> TIME_ZONE = 'America/Chicago'
+
+
+  4. configure "<app name>/urls.py":
+
+      header:
+        from django.conf.urls import url
+        from . import views
+
+      body:
+        urlpatterns = [
+            url(r'^$', views.<method name>, name = '<route name>'),
+          ]
+
+  5. create method in <app name>/views.py:
+
+      def index:
+        <method code here as needed>
+        return render(request, '<app name>/<page name>.html')
+
+
+III. create views:
+
+1. for app make a folder for html pages:
+      <project_name>/apps/<app_name>/templates/<page_name>.html
+      1. for app make a folder for html pages:
+
+
+IV. Create pages:
+
+    
+
+
+
+
+
+
+
+.

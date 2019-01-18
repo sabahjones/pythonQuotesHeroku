@@ -1,54 +1,83 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Blackbelt - quotes main page</title>
-  </head>
-  <body>
-    welcome {{request.session.name}}!
-    <br>
-    <a href="/logout">logout</a>
 
-<h2>shortlist test</h2>
+<head>
+  <meta charset="utf-8">
+  <title>Blackbelt - quotes main page</title>
+</head>
 
-    {% for a in allquotes %}
-    {% if a not in exclude %}
+<body>
+  <div style="width: 80%; margin: auto;">
+    <div style="justify-content: right; background-color: white; padding: 0 0 1% 80% ; margin: 30px 0 0 0;">
+      <strong>Welcome back {{request.session.name}}!
+        <br>
+        <a href="/logout">logout</a>
+      </strong>
+    </div>
 
-    <br>
-    <b>{{a.author}}</b>: {{a.text}} <br>
-    <i>posted by: <a href="/showuser/{{a.user.id}}">{{a.user.name}}</a></i>
-    <br>
-    <a href="addfave/{{a.id}}"><button>add to my list</button></a>
-    <br>
+    <div style="display:inline-block; background-color:lightcyan; overflow: scroll; width: 45%; padding: 10px; vertical-align: top; width: 45%; border: 0px; height: 500px;">
+      <h3>Popular quotes!</h3>
 
-    {% endif %}
-    {% endfor %}
+      {% for a in allquotes %}
+      {% if a not in exclude %}
 
-    <h3>Your favorites</h3>
+      <b>{{a.author}}</b>:
+      <br>
+      {{a.text}}
+      <br>
+      <i>posted by: <a href="/showuser/{{a.user.id}}">{{a.user.name}}</a></i>
+      <br>
+      {% if a.user.id == request.session.id %}
+      <a href="/deletequote/{{a.id}}"><button>Delete</button></a>
+      {% endif %}
+      <a href="addfave/{{a.id}}"><button>Add to favorites!</button></a>
+      <br><br>
+
+      {% endif %}
+      {% endfor %}
+
+    </div>
+
+    <div style="display: inline-block; background-color: beige; overflow: scroll; vertical-align: top; width: 50%; padding: 10px; border: 0px; height: 500px;">
+      <h3>Your favorites!</h3>
 
       {% for fave in favequotes %}
       <b>{{fave.quote.author}}:</b> {{fave.quote.text}} <br>
       <i>posted by: <a href="/showuser/{{fave.quote.user.id}}">{{fave.quote.user.name}}</a></i>
       <br>
-      <a href="deletefave/{{fave.id}}"><button>Delete</button></a>
+      <a href="deletefave/{{fave.id}}"><button>Remove</button></a>
       <br>
       <br>
       {% endfor %}
+    </div>
 
 
 
 
 
-    <form action="/addquote" method = "POST">
-      {% csrf_token %}
-      <table>
-      <tr><td>Quoted by: </td><td><input type="text" name="author"></td></tr>
-        <br>
-      <tr><td>Message: </td><td><textarea name="quote" cols="30" rows="10"></textarea></td></tr>
-      <tr><td></td><td><input type="submit" value="add quote"></td></tr>
-    </table>
+    <div style="background-color: lightgrey; padding: 10px;">
+      <h1>Add new quotes to the collection!</h1>
+      <form action="/addquote" method="POST">
+        {% csrf_token %}
+        <table>
+          <tr>
+            <td>Quoted by: </td>
+            <td><input type="text" name="author"></td>
+          </tr>
+          <br>
+          <tr>
+            <td>Message: </td>
+            <td><textarea name="quote" cols="30" rows="10"></textarea></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" value="add quote"></td>
+          </tr>
+        </table>
 
-    </form>
+      </form>
+    </div>
+  </div>
+</body>
 
-  </body>
 </html>
